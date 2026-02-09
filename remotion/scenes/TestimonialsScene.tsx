@@ -187,6 +187,9 @@ export const TestimonialsScene: React.FC = () => {
             <CatNarrator
                 subtitle="喵~ 超過 50,000 位用戶的五星好評!"
                 showFrom={40}
+                audioOffsetInSeconds={10}
+                audioDurationInSeconds={3}
+                audioDelayInFrames={20}
             />
         </AbsoluteFill>
     );

@@ -230,6 +230,8 @@ export const ProductsScene: React.FC = () => {
             <CatNarrator
                 subtitle="喵~ 無論是哪個版本，都是性價比之王!"
                 showFrom={40}
+                audioOffsetInSeconds={6.1}
+                audioDurationInSeconds={4}
             />
         </AbsoluteFill>
     );

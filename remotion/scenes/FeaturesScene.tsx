@@ -184,6 +184,9 @@ export const FeaturesScene: React.FC = () => {
             <CatNarrator
                 subtitle="喵~ 看看這個細節，做工非常精緻喔!"
                 showFrom={30}
+                audioOffsetInSeconds={3}
+                audioDurationInSeconds={3.3}
+                audioDelayInFrames={30}
             />
         </AbsoluteFill>
     );

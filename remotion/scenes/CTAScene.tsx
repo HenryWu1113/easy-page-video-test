@@ -185,6 +185,9 @@ export const CTAScene: React.FC = () => {
             <CatNarrator
                 subtitle="喵~ 現在購買享有限時優惠,不要錯過喔!"
                 showFrom={20}
+                audioOffsetInSeconds={13}
+                audioDurationInSeconds={4}
+                audioDelayInFrames={30}
             />
         </AbsoluteFill>
     );

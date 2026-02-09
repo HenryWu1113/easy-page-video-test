@@ -103,6 +103,8 @@ export const OpeningScene: React.FC = () => {
             <CatNarrator
                 subtitle="喵~ 體驗前所未有的創新科技!"
                 showFrom={60}
+                audioOffsetInSeconds={0}
+                audioDurationInSeconds={3.2}
             />
         </AbsoluteFill>
     );

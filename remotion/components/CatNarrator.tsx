@@ -1,12 +1,21 @@
 import React from 'react';
-import { spring, useCurrentFrame, useVideoConfig, interpolate } from 'remotion';
+import { spring, useCurrentFrame, useVideoConfig, interpolate, Audio, staticFile, Sequence } from 'remotion';
 
 interface CatNarratorProps {
     subtitle: string;
     showFrom?: number;
+    audioOffsetInSeconds?: number;
+    audioDurationInSeconds?: number;
+    audioDelayInFrames?: number;
 }
 
-export const CatNarrator: React.FC<CatNarratorProps> = ({ subtitle, showFrom = 0 }) => {
+export const CatNarrator: React.FC<CatNarratorProps> = ({
+    subtitle,
+    showFrom = 0,
+    audioOffsetInSeconds,
+    audioDurationInSeconds,
+    audioDelayInFrames = 0
+}) => {
     const frame = useCurrentFrame();
     const { fps } = useVideoConfig();
 
@@ -309,6 +318,16 @@ export const CatNarrator: React.FC<CatNarratorProps> = ({ subtitle, showFrom = 0
                     }}
                 />
             </div>
+
+            {/* 音效控制: 如果有指定秒數，就播那一段 */}
+            {audioOffsetInSeconds !== undefined && audioDurationInSeconds !== undefined && (
+                <Sequence from={showFrom + audioDelayInFrames} durationInFrames={Math.ceil(audioDurationInSeconds * fps)}>
+                    <Audio
+                        src={staticFile("audio/narrator-full.mp3")}
+                        startFrom={Math.ceil(audioOffsetInSeconds * fps)}
+                    />
+                </Sequence>
+            )}
         </div>
     );
 };
